@@ -10,6 +10,20 @@ services:
       dockerfile: test/Dockerfile
     image: ppsdocker/halvonik-php
     container_name: HalvonikPhp
+    command:
+      - sh
+      - '-c'
+      - /entrypoint.sh
+    deploy:
+      mode: replicated
+      replicas: 2
+      resources:
+        limits:
+          cpus: '1'
+          memory: 10G
+        reservations:
+          cpus: '0.25'
+          memory: 20M
     expose:
       - 9000
     networks:

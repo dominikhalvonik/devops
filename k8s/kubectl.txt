@@ -1,0 +1,13 @@
+kubectl get namespaces
+kubectl create namespace ukf
+kubectl apply -f
+kubectl -n ukf get deployments
+kubectl -n ukf get svc
+kubectl -n ukf get configmap
+kubectl -n ukf get pods
+kubectl -n ukf delete pods --all
+kubectl logs -f -n ukf nginx-688978f46d-mnm8x
+kubectl logs -f -n ukf nginx-56949bd79d-9v8w5 nginx
+kubectl edit configmap nginx-config  -o yaml -n ukf
+kubectl exec -it nginx-d64b868c9-mvt6h -n ukf -c nginx -- bash
+kubectl delete -n ukf svc nginx
