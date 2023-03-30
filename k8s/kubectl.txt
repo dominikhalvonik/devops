@@ -11,3 +11,5 @@ kubectl logs -f -n ukf nginx-56949bd79d-9v8w5 nginx
 kubectl edit configmap nginx-config  -o yaml -n ukf
 kubectl exec -it nginx-d64b868c9-mvt6h -n ukf -c nginx -- bash
 kubectl delete -n ukf svc nginx
+kubectl create secret generic ukf-secret --from-file=.dockerconfigjson=<path/to/.docker/config.json> --type=kubernetes.io/dockerconfigjson
+kubectl create secret docker-registry ukf-secret --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>

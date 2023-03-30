@@ -24,6 +24,8 @@ spec:
             name: nginx-config
             defaultMode: 420
       terminationGracePeriodSeconds: 60
+      imagePullSecrets:
+        - name: ukf-secret
       containers:
         - name: php8
           image: library/php:8.2.2-fpm
