@@ -15,9 +15,11 @@ spec:
         metadata:
           creationTimestamp: null
         spec:
+          imagePullSecrets:
+            - name: ukf-secret
           containers:
             - name: ukf-cronjob-pod
-              image: ppsdocker/halvonik-php-2:latest
+              image: ppsdocker/halvonik-php:latest
               command:
                 - php
                 - index.php

@@ -26,9 +26,11 @@ spec:
         - name: shared-files
           emptyDir: {}
       terminationGracePeriodSeconds: 60
+      imagePullSecrets:
+        - name: ukf-secret
       containers:
         - name: halvonik-php
-          image: ppsdocker/halvonik-php-2:latest
+          image: ppsdocker/halvonik-php:latest
           imagePullPolicy: Always
           command:
             - /usr/local/sbin/php-fpm

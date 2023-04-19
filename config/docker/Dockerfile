@@ -13,7 +13,9 @@ RUN pecl install redis && \
 RUN pecl install xdebug && \
     docker-php-ext-enable xdebug
 
-WORKDIR /var/www/halvonik_api
+WORKDIR /var/www/app
+COPY ./src ./
+RUN chmod -R 777 uploads
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
