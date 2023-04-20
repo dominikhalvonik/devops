@@ -25,6 +25,9 @@ spec:
             defaultMode: 420
         - name: shared-files
           emptyDir: {}
+        - name: ukf-pv-storage
+          persistentVolumeClaim:
+            claimName: ukf-pv-claim
       terminationGracePeriodSeconds: 60
       imagePullSecrets:
         - name: ukf-secret
@@ -50,6 +53,8 @@ spec:
           volumeMounts:
             - name: shared-files
               mountPath: /var/www/html
+            - name: ukf-pv-storage
+              mountPath: /var/www/html/uploads
           lifecycle:
             postStart:
               exec:
@@ -85,3 +90,5 @@ spec:
               subPath: default.conf
             - name: shared-files
               mountPath: /var/www/html
+            - name: ukf-pv-storage
+              mountPath: /var/www/html/uploads
